@@ -161,7 +161,8 @@ public class LoginScreenHandler : MonoBehaviour
                 // Startup up UDP
                 sfs.InitUDP(Host, UdpPort);
 
-                //sfs.Send(new JoinRoomRequest("The Lobby"));
+                // Load Waiting Room
+                SceneManager.LoadScene("Wating Room");
             }
         }
         catch (Exception ex)
@@ -194,8 +195,6 @@ public class LoginScreenHandler : MonoBehaviour
             // Set invert mouse Y option
             //OptionsManager.InvertMouseY = invertMouseToggle.isOn;
 
-            // Load lobby scene
-            //SceneManager.LoadScene("Lobby");
         }
         else
         {
@@ -230,8 +229,6 @@ public class LoginScreenHandler : MonoBehaviour
         sfs.AddEventListener(SFSEvent.LOGIN, OnLogin);
         sfs.AddEventListener(SFSEvent.LOGIN_ERROR, OnLoginError);
         sfs.AddEventListener(SFSEvent.UDP_INIT, OnUdpInit);
-        //sfs.AddEventListener(SFSEvent.ROOM_JOIN, OnRoomJoin);
-        //sfs.AddEventListener(SFSEvent.ROOM_JOIN_ERROR, OnRoomJoinError);
 
         // Connect to SFS2X
         sfs.Connect(cfg);
@@ -242,25 +239,5 @@ public class LoginScreenHandler : MonoBehaviour
 
         SceneManager.LoadScene(2);
     }
-
-    private void OnRoomJoin(BaseEvent evt)
-    {
-        // Remove SFS2X listeners and re-enable interface before moving to the main game scene
-        reset();
-
-        // Go to main game scene
-        SceneManager.LoadScene("Waiting Room");
-    }
-
-    private void OnRoomJoinError(BaseEvent evt)
-    {
-        // Show error message
-        errorText.text = "Room join failed: " + (string)evt.Params["errorMessage"];
-    }
-
-    
-
-    
-
 }
 
