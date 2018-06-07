@@ -1,0 +1,11 @@
+Build/
+obj/
+Packages/
+Temp/
+Library/
+Assets/Images
+Assets/Font
+*.csproj
+*.sln
+.vs/
+.git/
