@@ -10,3 +10,5 @@ Assets/Font
 .vs/
 .git/
 */*.meta
+*/*/*.meta
+*/*/*/*.meta
