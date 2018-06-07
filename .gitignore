@@ -9,3 +9,4 @@ Assets/Font
 *.sln
 .vs/
 .git/
+*/*.meta
