@@ -162,7 +162,7 @@ public class LoginScreenHandler : MonoBehaviour
                 sfs.InitUDP(Host, UdpPort);
 
                 // Load Waiting Room
-                SceneManager.LoadScene("Wating Room");
+                SceneManager.LoadScene(3);
             }
         }
         catch (Exception ex)
